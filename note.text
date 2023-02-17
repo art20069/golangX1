@@ -24,5 +24,9 @@
     ก็สามารถใช้ blank identifier (_) ได้ เพื่อให้ code ที่เขียน compile ผ่าน
     มาดูตัวอย่างกัน
     - https://www.somkiat.cc/part-1-with-50-shades-of-go/
+10. Form and DTO Z Data Transfer Object)
+    - แยก file ส่วนของ struct เพื่อกำหนด reuse-code
+11. File-Upload
+    - os.MkdirAll("uploads/products", 0755)
+    - https://github.com/google/uuid  install
     
-
