@@ -1,6 +1,7 @@
 package db
 
 import (
+	"codezard-pos/model"
 	"fmt"
 	"log"
 	"os"
@@ -24,6 +25,15 @@ func ConnectDB() {
 		log.Fatal("Connect conne;c;t to the database") // log ที่จะแสดงข้อความออกทาง teminal และปิดการทำงานให้ไม่ต้องมี return
 	}
 	Conn = db
+}
+
+func Migrate() {
+	Conn.AutoMigrate(
+		&model.Category{},
+		&model.Product{},
+		&model.Order{},
+		&model.OrderItem{},
+	)
 }
 
 // dsn := "user:1234567890@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"

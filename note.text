@@ -34,4 +34,10 @@
     - go get -u gorm.io/gorm
     - go get -u gorm.io/driver/mysql
     - ยกเว้น file ในการ push ขึ้น Github https://github.com/joho/godotenv
-    
+13. Model ตัวกำหนดคุณสมบัติของ table ในภาษา golang
+    -   // somchaiOrder.OrderItems => dataItems
+	    // OrderItems []OrderItem
+	    //---------------------------------------//
+	    // somchaiOrder.Products => dataItems
+	    Products []OrderItem `gorm:"foreignKey:OrderID"`
+        * การเชื่อมข้อมูลเพื่อให้เกิดความสะดวกในการเรียกแสดงข้อมูลผ่าน Products แสดงค่าใน orderItems และเปลี่ยนชื่อให้ตรงตามความต้องการของเราให้ง่ายกับการเรียกและจำ *

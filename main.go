@@ -15,6 +15,7 @@ func main() {
 		log.Fatal("Error loadding file env")
 	}
 	db.ConnectDB()
+	db.Migrate()
 
 	os.MkdirAll("uploads/products", 0755)
 	r := gin.Default()
