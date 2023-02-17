@@ -29,4 +29,9 @@
 11. File-Upload
     - os.MkdirAll("uploads/products", 0755)
     - https://github.com/google/uuid  install
+12. install gorm.io --> https://gorm.io/docs/
+    - install mysql and mywork_bench
+    - go get -u gorm.io/gorm
+    - go get -u gorm.io/driver/mysql
+    - ยกเว้น file ในการ push ขึ้น Github https://github.com/joho/godotenv
     
