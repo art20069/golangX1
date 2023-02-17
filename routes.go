@@ -1,27 +1,24 @@
 package main
 
 import (
-	"net/http"
+	"codezard-pos/controller"
 
 	"github.com/gin-gonic/gin"
 )
 
 func serveRoutes(r *gin.Engine) {
 
-	r.GET("/products", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{"greeting": "Hello Server Default"})
-	})
+	productController := controller.Product{}
+	productGroup := r.Group("/products")
 
-	r.GET("/products/:id", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{"greeting": "Hello Server Default"})
-	})
+	productGroup.GET("", productController.FindAll)
 
-	r.PATCH("/heproductsllo/:id", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{"greeting": "Hello Server Default"})
-	})
+	productGroup.GET("/:id", productController.FindOne)
 
-	r.DELETE("/products", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{"greeting": "Hello Server Default"})
-	})
+	productGroup.POST("", productController.Update)
+
+	productGroup.PATCH("/:id", productController.Create)
+
+	productGroup.DELETE("/:id", productController.Delete)
 
 }
