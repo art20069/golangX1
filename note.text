@@ -20,5 +20,9 @@
     - create file controller
     - Test routing for file controller > products
 9. Param and Query
-    - 
+    - แต่ถ้าต้องทำการ import แต่ไม่ได้ใช้งาน
+    ก็สามารถใช้ blank identifier (_) ได้ เพื่อให้ code ที่เขียน compile ผ่าน
+    มาดูตัวอย่างกัน
+    - https://www.somkiat.cc/part-1-with-50-shades-of-go/
+    
 

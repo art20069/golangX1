@@ -8,17 +8,20 @@ import (
 
 func serveRoutes(r *gin.Engine) {
 
+	categoryController := controller.Category{}
+	categoryGroup := r.Group("/categories")
+	categoryGroup.GET("", categoryController.FindAll)
+	categoryGroup.GET("/:id", categoryController.FindOne)
+	categoryGroup.POST("", categoryController.Create)
+	categoryGroup.PATCH("/:id", categoryController.Update)
+	categoryGroup.DELETE("/:id", categoryController.Delete)
+
 	productController := controller.Product{}
 	productGroup := r.Group("/products")
-
 	productGroup.GET("", productController.FindAll)
-
 	productGroup.GET("/:id", productController.FindOne)
-
-	productGroup.POST("", productController.Update)
-
-	productGroup.PATCH("/:id", productController.Create)
-
+	productGroup.POST("", productController.Create)
+	productGroup.PATCH("/:id", productController.Update)
 	productGroup.DELETE("/:id", productController.Delete)
 
 }
