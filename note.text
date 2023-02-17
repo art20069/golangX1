@@ -1,0 +1,15 @@
+1. go mod init codezard-pos
+2. install AIR https://github.com/cosmtrek/air
+3. install Gin https://github.com/gin-gonic/gin
+4. imprement Gin Server
+5. install Github for Project [ControlVersion] 
+    - login Github / email
+    - create Project ...
+        echo "# golangX1" >> README.md
+        git init
+        git add README.md
+        git commit -m "first commit"
+        git branch -M main
+        git remote add origin https://github.com/art20069/golangX1.git
+        git push -u origin main
+6. 
