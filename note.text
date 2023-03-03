@@ -41,3 +41,5 @@
 	    // somchaiOrder.Products => dataItems
 	    Products []OrderItem `gorm:"foreignKey:OrderID"`
         * การเชื่อมข้อมูลเพื่อให้เกิดความสะดวกในการเรียกแสดงข้อมูลผ่าน Products แสดงค่าใน orderItems และเปลี่ยนชื่อให้ตรงตามความต้องการของเราให้ง่ายกับการเรียกและจำ *
+14. CRUD Categories
+    - 

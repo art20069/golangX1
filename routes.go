@@ -15,6 +15,7 @@ func serveRoutes(r *gin.Engine) {
 	categoryGroup.POST("", categoryController.Create)
 	categoryGroup.PATCH("/:id", categoryController.Update)
 	categoryGroup.DELETE("/:id", categoryController.Delete)
+	categoryGroup.DELETE("/delete/:id", categoryController.Delete2)
 
 	productController := controller.Product{}
 	productGroup := r.Group("/products")
