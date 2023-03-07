@@ -44,7 +44,7 @@ func (p Product) FindAll(ctx *gin.Context) {
 
 	}
 
-	query.Find(&products)
+	query.Order("created_at desc").Find(&products)
 
 	//คืนข้อมูลออกไป
 	var result []dto.ReadProductResponse
