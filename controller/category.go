@@ -5,7 +5,9 @@ import (
 	"codezard-pos/dto"
 	"codezard-pos/model"
 	"errors"
+	"fmt"
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -108,8 +110,24 @@ func (c Category) Delete(ctx *gin.Context) {
 	})
 }
 
-func (c Category) Delete2(ctx *gin.Context) {
+func (c Category) Selete2(ctx *gin.Context) {
 	id := ctx.Param("id")
+
+	marksStr := id
+	marks, err := strconv.Atoi(marksStr)
+	if err != nil {
+		fmt.Println("Error during conversion")
+		ctx.JSON(http.StatusOK, gin.H{"Error during conversion": err})
+
+		return
+	}
+
+	if marks%2 == 0 {
+		ctx.JSON(http.StatusOK, gin.H{"even(เลขคู่)": marks})
+	} else {
+		ctx.JSON(http.StatusOK, gin.H{"odd(เลขคี่)": marks})
+	}
+
 	var category model.Category
 	if err := db.Conn.First(&category, id).Unscoped().Delete(&category, id).Error; errors.Is(err, gorm.ErrRecordNotFound) {
 		ctx.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
@@ -120,4 +138,9 @@ func (c Category) Delete2(ctx *gin.Context) {
 		ID:   category.ID,
 		Name: category.Name,
 	})
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"ID": id,
+	})
+
 }
