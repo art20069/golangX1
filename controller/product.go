@@ -7,6 +7,7 @@ import (
 	"errors"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
@@ -188,5 +189,7 @@ func (p Product) Update(ctx *gin.Context) {
 }
 
 func (p Product) Delete(ctx *gin.Context) {
-
+	id := ctx.Param("id")
+	db.Conn.Unscoped().Delete(&model.Product{}, id)
+	ctx.JSON(http.StatusOK, gin.H{"deletedAt": time.Now()})
 }
